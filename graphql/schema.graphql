@@ -1,0 +1,19 @@
+type Mutation {
+  createTask(title: String!, description: String): Task @create
+  updateTask(id: ID!, title: String, description: String, is_completed: Boolean): Task @update
+  deleteTask(id: ID! @eq): Task @delete
+}
+
+type Query {
+  tasks: [Task!]! @all
+  task(id: ID! @eq): Task @find
+}
+
+type Task {
+  id: ID!
+  title: String!
+  description: String
+  is_completed: Boolean!
+  created_at: String!
+  updated_at: String!
+}
